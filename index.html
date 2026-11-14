@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="#07080d" name="theme-color"/>
+<meta content="Christian Devalcoeur — Host &amp; Showman, Actor, AI Creator, Telekinesis Show." name="description"/>
+<title>Christian Devalcoeur | Four Dimensions</title>
+<style>
+    :root { color-scheme:dark; --ink:#090b12; --gold:#d9b56a; --line:rgba(229,206,159,.25); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; background:var(--ink); color:#f5f2eb; font-family:Inter,'Segoe UI',Arial,sans-serif; overflow-x:hidden; }
+    body::before {content:"";pointer-events:none;position:fixed;inset:0;z-index:20;opacity:.08;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E");}
+    .layout { max-width:1800px;margin:auto; min-height:100svh; display:flex; flex-direction:column; }
+    .masthead { position:relative; z-index:4; display:grid; grid-template-columns:minmax(60px,1fr) auto minmax(230px,1fr); align-items:center; gap:14px; padding:22px clamp(22px,4vw,74px) 18px; background:linear-gradient(180deg,#080a10 0%,#0a0c13 100%); border-bottom:1px solid var(--line); }
+    .masthead .monogram {font-family:Georgia,serif; letter-spacing:.08em; font-size:21px; font-weight:bold; color:var(--gold); border:1px solid #9e7a40; width:43px;height:43px;display:grid;place-items:center; }
+    .identity { text-align:center; }
+    .identity .eyebrow { color:#b89b6c; font-size:10px; letter-spacing:.42em; text-transform:uppercase; margin-bottom:8px; }
+    .identity h1 {font:normal clamp(22px,2.5vw,40px)/1.08 Georgia,'Times New Roman',serif; letter-spacing:.15em; margin:0; text-shadow:0 0 34px rgba(218,180,106,.18);}
+    .identity .subtitle {margin-top:10px;font-size:10px;letter-spacing:.35em;color:#9298ac;text-transform:uppercase;}
+    .right-controls{justify-self:end;display:flex;gap:17px;align-items:center;min-width:0}.menu {display:flex; gap:8px; align-items:center;}
+    .language {font-size:11px;letter-spacing:.12em;color:#c3c4ca;border:1px solid #363b49;background:transparent;padding:9px 12px;border-radius:20px;cursor:pointer;}
+    .hero {position:relative;display:flex;flex:1;min-height:620px;isolation:isolate;overflow:hidden;background:#07080d;padding-inline:clamp(9px,1.3vw,24px);}
+    .panels {width:100%;display:flex;min-width:0;align-items:stretch;isolation:isolate;}
+    .panel {--tone:#d9b56a;--wash:rgba(225,168,78,.16);position:relative;min-width:0;flex:1 1 25%;margin:0 -1px 0 -1px;overflow:hidden;isolation:isolate;clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%,26px 0);background:#080a10;cursor:pointer;transition:flex-grow .65s cubic-bezier(.2,.8,.2,1),filter .45s ease;outline:none;}
+    .panel:first-child {clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%);}
+    .panel:last-child {clip-path:polygon(26px 0,100% 0,100% 100%,0 100%);}
+    .panel:not(:first-child) {margin-left:-18px;}
+    .panel::before {content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,rgba(2,3,9,.15) 0%,transparent 30%,rgba(2,3,9,.1) 54%,rgba(3,5,12,.94) 100%),linear-gradient(90deg,rgba(3,4,8,.19),transparent 32%,var(--wash));pointer-events:none;transition:background .4s;}
+    .panel::after {content:"";position:absolute;z-index:4;top:-4%;bottom:-4%;right:16px;width:1.5px;background:linear-gradient(180deg,transparent 2%,var(--tone) 30%,#f4f2e9 50%,var(--tone) 70%,transparent 98%);transform:rotate(2.1deg);transform-origin:bottom center;opacity:.65;box-shadow:0 0 14px var(--tone);pointer-events:none;transition:opacity .4s;}
+    .panel:last-child::after {display:none;}
+    .panel img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:0;filter:saturate(.9) brightness(.76);transform:scale(1.015);transition:transform 1.2s cubic-bezier(.2,.75,.2,1),filter .6s;will-change:transform;}
+    .panel .ambient {position:absolute;z-index:1;inset:-10%;opacity:.3;pointer-events:none;background:radial-gradient(ellipse at 50% 35%,var(--wash),transparent 61%);transition:opacity .6s;}
+    .panel .content {position:absolute;z-index:5;bottom:0;left:0;right:0;padding:110px clamp(19px,2vw,36px) clamp(36px,5vh,70px);text-align:center;transform:translateY(8px);transition:transform .45s;}
+    .index {font:12px/1 Georgia,serif;color:var(--tone);letter-spacing:.32em;display:block;margin-bottom:17px;}
+    .content h2 {font:normal clamp(17px,1.7vw,30px)/1.08 Georgia,'Times New Roman',serif;letter-spacing:.07em;text-transform:uppercase;margin:0 0 12px;text-shadow:0 2px 22px #000;white-space:normal;}
+    .content p {font-size:clamp(10px,.85vw,13px);color:#dddde4;letter-spacing:.16em;text-transform:uppercase;min-height:32px;line-height:1.65;margin:0 0 18px;}
+    .explore {font-size:10px;letter-spacing:.19em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center;color:#fff;border:1px solid color-mix(in srgb,var(--tone) 62%,transparent);background:rgba(0,0,0,.3);padding:12px 16px;white-space:nowrap;transition:background .3s,transform .3s;}
+    .explore span {font-size:16px;color:var(--tone);line-height:.8;}
+    .host {--tone:#f4cd80;--wash:rgba(230,169,74,.24);}
+    .actor {--tone:#d8e3fa;--wash:rgba(131,165,211,.20);}
+    .ai {--tone:#67d9ff;--wash:rgba(31,168,255,.18);}
+    .tele {--tone:#e0acff;--wash:rgba(135,50,230,.27);}
+    .panel:is(:hover,:focus-visible,.active) {flex-grow:1.33;z-index:3;}
+    .panels:has(.panel:is(:hover,:focus-visible,.active)) .panel:not(:hover):not(:focus-visible):not(.active) {filter:brightness(.67);}
+    .panel:is(:hover,:focus-visible,.active) img {filter:saturate(1.08) brightness(1);transform:scale(1.067);}
+    .panel:is(:hover,:focus-visible,.active) .ambient {opacity:.85;animation:energy 4s ease-in-out infinite alternate;}
+    .panel:is(:hover,:focus-visible,.active) .content {transform:translateY(0);}
+    .panel:is(:hover,:focus-visible,.active) .explore {background:color-mix(in srgb,var(--tone) 22%,#080912);transform:translateY(-3px);}
+    .panel:is(:hover,:focus-visible,.active)::after {opacity:1;}
+    @keyframes energy {from{transform:translate(-2%,-1%) scale(1)}to{transform:translate(2%,1%) scale(1.12)}}
+    .bottom {border-top:1px solid var(--line);background:linear-gradient(180deg,#0a0c12,#07080d);color:#7b8090;padding:16px clamp(23px,4vw,72px);display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;}
+    .bottom .tagline {font-family:Georgia,serif;text-transform:none;letter-spacing:.12em;color:#c4ab7c;font-size:13px;}
+    .preview-tag {border:1px solid #56505c;color:#b8aeb6;border-radius:20px;padding:7px 10px;letter-spacing:.12em;}
+    .toast {position:fixed;z-index:100;left:50%;bottom:30px;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:#171b27;border:1px solid #8b7859;color:#eee;padding:14px 20px;box-shadow:0 8px 30px #0008;text-align:center;max-width:calc(100vw - 30px);font-size:13px;transition:opacity .3s,transform .3s;}
+    .toast.show {opacity:1;transform:translate(-50%,0);}
+    @media (max-width:880px) {
+      .masthead {padding:18px 15px;grid-template-columns:43px minmax(0,1fr) auto;gap:4px;}
+      .identity h1 {font-size:clamp(17px,4.2vw,27px);letter-spacing:.085em;}
+      .identity .eyebrow {letter-spacing:.2em;font-size:9px;}
+      .identity .subtitle {letter-spacing:.15em;font-size:8px;}
+      .language {padding:8px 6px;font-size:10px;}
+      .hero {min-height:650px;padding-inline:0;}
+      .panel .content {padding:100px 8px 25px;}
+      .content h2 {font-size:clamp(11px,2vw,19px);}
+      .content p {font-size:9px;letter-spacing:0;}
+      .explore {font-size:8px;padding:10px 7px;letter-spacing:.05em;}
+      .panel:not(:first-child) {margin-left:-14px;}
+      .panel {clip-path:polygon(15px 0,100% 0,calc(100% - 15px) 100%,0 100%);}
+      .panel:first-child {clip-path:polygon(0 0,100% 0,calc(100% - 15px) 100%,0 100%);}
+      .panel:last-child {clip-path:polygon(15px 0,100% 0,100% 100%,0 100%);}
+      .panel::after {right:8px;}
+    }
+    @media (max-width:620px) {
+      .layout{min-height:100svh;}
+      .hero {min-height:0;display:block;overflow:visible;}
+      .panels {display:grid;grid-template-columns:1fr 1fr;}
+      .panel,.panel:first-child,.panel:last-child {clip-path:none;margin:0;min-height:48svh;min-width:0;}
+      .panel:not(:first-child){margin-left:0;}
+      .panel::after {right:0;top:0;bottom:0;transform:none;width:1px;}
+      .panel:nth-child(2)::after{display:none;}
+      .panel img {object-position:center 20%;filter:saturate(.95) brightness(.83);}
+      .panel .content {padding:70px 9px 19px;}
+      .panel .content h2 {font-size:clamp(15px,4vw,21px);}
+      .panel .content p {font-size:9px;min-height:25px;}
+      .panel .explore {font-size:9px;padding:10px 10px;}
+      .panel:is(:hover,:focus-visible,.active){flex-grow:1;}
+      .bottom {flex-direction:column;gap:8px;text-align:center;padding:18px 10px;}
+    }
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important;}}
+
+    .panel .hero-video {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;z-index:0;opacity:0;pointer-events:none;filter:saturate(1.04) brightness(.92);transform:scale(1.015);transition:opacity .34s ease,transform 1.2s cubic-bezier(.2,.75,.2,1);}
+    .panel.is-playing .hero-video {opacity:1;transform:scale(1.067);}
+    @media (max-width:620px){.panel .hero-video{object-position:center 20%;}}
+    @media(prefers-reduced-motion:reduce){.panel .hero-video{display:none!important;}}
+  
+    .menu{flex-wrap:wrap;justify-content:flex-end}.language-choice{min-width:36px;padding:8px 9px}.language-choice[aria-pressed="true"]{border-color:#d9b56a;color:#f5db9d;background:rgba(217,181,106,.12)}
+    .panel{touch-action:manipulation}.panel:focus-visible{outline:2px solid #e8c783;outline-offset:-3px}.explore .explore-label{font-size:inherit;line-height:1.1;color:inherit}.explore>span:last-child{font-size:16px;color:var(--tone)}
+    @media(max-width:620px){.masthead{grid-template-columns:35px minmax(0,1fr) auto}.language-choice{min-width:30px;padding:8px 5px}.menu{gap:3px}.identity h1{font-size:clamp(14px,3.7vw,20px)}.panel .explore{white-space:normal;justify-content:center;min-height:34px}}
+    @media(max-width:1050px){.masthead{grid-template-columns:50px minmax(0,1fr) auto}.right-controls{gap:8px}.identity h1{letter-spacing:.09em}.signature-dock{width:58px}.signature-device{width:50px;height:50px;border-radius:50%;transform:none}.signature-platter{width:42px;height:42px;left:3px;top:3px}.signature-label{width:16px;height:16px;font-size:6px}.signature-arm,.signature-menu-toggle,.signature-caption{display:none}.signature-play{width:28px;height:28px;right:-8px;bottom:-7px}.signature-panel{position:fixed;right:12px;left:auto;top:85px;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 100px)}}
+    @media(max-width:620px){.masthead{gap:7px}.right-controls{gap:5px}.identity .eyebrow{font-size:8px}.identity h1{font-size:clamp(12px,3.3vw,19px)}.menu{gap:2px}.language-choice{min-width:25px;padding:7px 4px}.masthead .monogram{width:34px;height:34px;font-size:18px}}
+
+/* V10: logo and player side by side, title centered, language menu on the right */
+.masthead{grid-template-columns:minmax(245px,1fr) auto minmax(145px,1fr)}
+.left-brand{display:flex;align-items:center;justify-self:start;gap:15px;min-width:0}
+.left-brand .monogram{flex:0 0 43px}
+.left-brand .signature-dock{flex:0 0 184px;width:184px;justify-self:auto}
+.right-controls{justify-self:end}
+.identity{min-width:0}
+/* The expanded audio console opens toward the interior of the page. */
+.left-brand .signature-panel{left:0;right:auto}
+@media(max-width:1240px){
+ .masthead{grid-template-columns:minmax(112px,1fr) minmax(0,auto) minmax(106px,1fr);gap:10px}
+ .left-brand{gap:11px}
+ .left-brand .signature-dock{width:58px;flex-basis:58px}
+ .identity h1{font-size:clamp(19px,2.45vw,30px);letter-spacing:.085em}
+}
+@media(max-width:880px){
+ .masthead{grid-template-columns:minmax(95px,1fr) minmax(0,auto) minmax(90px,1fr);gap:7px}
+ .left-brand{gap:9px}
+ .left-brand .monogram{flex-basis:36px;width:36px;height:36px}
+ .left-brand .signature-dock{width:52px;flex-basis:52px}
+ .left-brand .signature-panel{position:fixed;left:12px;right:auto;top:80px}
+}
+@media(max-width:620px){
+ .masthead{grid-template-columns:88px minmax(0,1fr) auto;gap:5px;padding-left:10px;padding-right:10px}
+ .left-brand{gap:7px}
+ .left-brand .monogram{width:30px;height:30px;flex-basis:30px;font-size:15px}
+ .left-brand .signature-dock{width:47px;flex-basis:47px}
+ .identity h1{font-size:clamp(12px,3vw,19px);letter-spacing:.045em}
+ .identity .eyebrow{font-size:7px;letter-spacing:.06em}
+ .identity .subtitle{font-size:7px;letter-spacing:.04em}
+ .right-controls{gap:0}
+ .menu{gap:2px}
+ .language-choice{min-width:23px;padding:6px 4px}
+}
+
+/* V11 — Silver Light B title, subtle moving metallic highlights */
+.identity .silver-signature{position:relative;display:inline-block;color:#d7dee9;background:linear-gradient(112deg,#647084 0%,#dce4ef 13%,#fdfdff 23%,#8796ad 35%,#d5dfeb 49%,#fff 54%,#8999b0 69%,#e5edf5 85%,#8493a9 100%);background-size:230% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 1px 0 #303c50) drop-shadow(0 2px 2px #000a);text-shadow:none;animation:silver-sheen 12s ease-in-out infinite}
+.identity .silver-signature::after{content:'';position:absolute;pointer-events:none;left:0;right:0;bottom:-8px;height:1px;background:linear-gradient(90deg,transparent,#536e93 14%,#ebf6ff 49%,#5e8fc7 75%,transparent);box-shadow:0 0 7px 1px #6ebcff50}
+@keyframes silver-sheen{0%,14%{background-position:100% 0}37%,100%{background-position:0 0}}
+@media(prefers-reduced-motion:reduce){.identity .silver-signature{animation:none;background-position:55% 0}}
+
+</style>
+<link rel="stylesheet" href="assets/player.css"/>
+<link rel="stylesheet" href="assets/player-v12.css"/>
+<link rel="stylesheet" href="assets/title-v13.css"/>
+<link rel="stylesheet" href="assets/player-v14.css"/>
+<link rel="stylesheet" href="assets/portal-v15.css"/>
+<link rel="stylesheet" href="assets/v16-design-approval.css"/>
+<link rel="stylesheet" href="assets/v16-final.css"/>
+<link rel="stylesheet" href="assets/v17-glass.css"/>
+<link rel="stylesheet" href="assets/v19-final.css"/>
+</head>
+<body>
+<div class="layout">
+<header class="masthead">
+<div class="left-brand"><div class="monogram" aria-label="Christian Devalcoeur">CD</div>
+<div class="signature-dock" aria-label="Devalcoeur Signature Elite">
+ <div class="signature-device" aria-hidden="false">
+  <video class="signature-stage-video" id="signature-stage-video" poster="assets/signature-standby.jpg" muted playsinline preload="metadata" aria-hidden="true"></video>
+  <button type="button" class="signature-menu-toggle" id="signature-menu-toggle" aria-expanded="false" aria-controls="signature-panel" aria-label="Open audio controls"><span class="sr-only">Audio controls</span></button>
+  <button type="button" class="signature-play" id="signature-play" aria-label="Play"><span class="sr-only">Play / Pause</span></button>
+ </div>
+ <div class="signature-caption">DEVALCOEUR · SIGNATURE ELITE</div>
+ <div class="signature-panel" id="signature-panel" hidden>
+  <div class="signature-panel-header"><div><div class="signature-panel-name">DEVALCOEUR SIGNATURE ELITE</div><div class="signature-panel-sub" data-player-i18n="sub">AUDIO CONTROL CONSOLE</div></div><button class="signature-close" id="signature-close" aria-label="Close">×</button></div>
+  <div class="signature-holo signature-large-stage"><video id="signature-large-video" class="signature-large-video" muted playsinline preload="metadata" poster="assets/signature-standby.jpg" aria-label="Devalcoeur Signature Elite enlarged animated turntable"></video><div class="signature-holo-label">DEVALCOEUR · SIGNATURE ELITE</div></div>
+  <canvas id="signature-spectrum" class="signature-spectrum" aria-label="Audio frequency visualizer"></canvas>
+  <span class="signature-track" id="signature-track">Veiled Encounter — Signature Theme</span>
+  <input type="range" min="0" max="1000" value="0" disabled id="signature-position" class="signature-progress" aria-label="Track position"/>
+  <div class="signature-times"><span id="signature-now">0:00</span><span id="signature-duration">0:00</span></div>
+  <div class="signature-transport"><button type="button" class="signature-control" id="signature-panel-play" aria-label="Play or pause">▶ / ❚❚</button><button type="button" class="signature-control" id="signature-stop" data-player-i18n="stop">Stop</button><button type="button" class="signature-control" id="signature-mute" aria-pressed="false" data-player-i18n="mute">Mute</button><button type="button" class="signature-control" id="signature-loop" aria-pressed="false" data-player-i18n="loop">Loop</button></div>
+  <label class="signature-load"><span data-player-i18n="load">Load your music</span><input type="file" id="signature-load-input" accept="audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac,.opus"/></label>
+  <div class="signature-status" id="signature-status" role="status">Ready to play</div>
+  <div class="signature-slider-row"><label for="signature-volume" data-player-i18n="volume">VOLUME</label><input id="signature-volume" type="range" min="0" max="100" value="70"/><output id="signature-volume-out">70%</output></div>
+  <div class="signature-slider-row"><label for="signature-bass" data-player-i18n="bass">BASS</label><input id="signature-bass" type="range" min="-12" max="12" value="0"/><output id="signature-bass-out">0 dB</output></div>
+  <div class="signature-slider-row"><label for="signature-mid" data-player-i18n="mid">MID</label><input id="signature-mid" type="range" min="-12" max="12" value="0"/><output id="signature-mid-out">0 dB</output></div>
+  <div class="signature-slider-row"><label for="signature-treble" data-player-i18n="treble">TREBLE</label><input id="signature-treble" type="range" min="-12" max="12" value="0"/><output id="signature-treble-out">0 dB</output></div>
+ </div>
+ <audio id="signature-audio" preload="metadata" src="assets/signature-theme.mp3"></audio>
+</div></div>
+<div class="identity">
+<div class="eyebrow" data-i18n="eyebrow">Official Personal Portal</div>
+<h1 class="silver-signature silver-art signature-film-title" aria-label="CHRISTIAN DEVALCOEUR"><video class="signature-title-video" autoplay muted loop playsinline preload="metadata" poster="assets/christian-title-glass-frame.jpg" aria-hidden="true"><source src="assets/christian-title-glass-frame.mp4" type="video/mp4"/></video></h1>
+<div class="subtitle" data-i18n="subtitle">One Identity · Four Dimensions</div>
+</div>
+<div class="right-controls">
+  <div class="audio-console-card elite-overlay" id="audio-console-preview" data-mode="console" aria-label="Devalcoeur interactive audio console">
+    <div class="elite-glass-content" aria-hidden="true">
+      <canvas id="audio-console-canvas" class="audio-console-canvas" width="480" height="112"></canvas>
+      <div class="elite-glass-sheen"></div>
+    </div>
+    <picture class="elite-overlay-fallback" aria-hidden="true"><img src="assets/console-glass-standby.png" alt=""></picture>
+    <video class="elite-overlay-video" id="elite-overlay-video" src="assets/console-glass-overlay.webm" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    <img class="elite-static-state elite-state-fx-off" src="assets/console-fx-off.png" alt="" aria-hidden="true">
+    <img class="elite-static-state elite-state-power-off" src="assets/console-power-off.png" alt="" aria-hidden="true">
+    <div class="elite-hitboxes">
+      <button type="button" class="elite-hotspot elite-console" data-console-mode="console" aria-label="Console mode" aria-pressed="true"></button>
+      <button type="button" class="elite-hotspot elite-sphere" data-console-mode="sphere" aria-label="Sphere mode" aria-pressed="false"></button>
+      <button type="button" class="elite-hotspot elite-audio" id="open-player-from-console" aria-label="Open music console"></button>
+      <button type="button" class="elite-hotspot elite-play" id="elite-glass-play" aria-label="Play or pause"></button>
+      <button type="button" class="elite-hotspot elite-settings" id="elite-glass-settings" aria-label="Audio settings"></button>
+      <input type="range" class="elite-hotspot elite-bass" id="elite-bass" min="-12" max="12" value="0" aria-label="Bass" />
+      <input type="range" class="elite-hotspot elite-mid" id="elite-mid" min="-12" max="12" value="0" aria-label="Mid" />
+      <input type="range" class="elite-hotspot elite-treble" id="elite-treble" min="-12" max="12" value="0" aria-label="Treble" />
+      <button type="button" class="elite-hotspot elite-headphones" id="elite-glass-mute" aria-label="Mute"></button>
+    </div>
+  </div>
+  <div class="control-cluster">
+    <button class="elite-state-switch" id="elite-fx-switch" type="button" aria-pressed="true" title="Световые эффекты"><span aria-hidden="true">✧</span><span class="elite-switch-label">FX</span></button>
+    <button class="elite-state-switch elite-power-switch" id="elite-power-switch" type="button" aria-pressed="true" title="Выключить устройство"><span aria-hidden="true">⏻</span></button>
+    <button class="fullscreen-toggle" id="fullscreen-toggle" type="button" aria-label="Toggle fullscreen">⛶</button>
+    <div class="menu"><button aria-label="Switch to RU" class="language language-choice" data-lang="ru" type="button">RU</button><button aria-label="Switch to EN" class="language language-choice" data-lang="en" type="button">EN</button><button aria-label="Switch to FR" class="language language-choice" data-lang="fr" type="button">FR</button></div>
+  </div>
+</div>
+</header>
+<main aria-label="Четыре направления творчества" class="hero" data-i18n-aria="mainAria">
+<div class="panels" id="panels">
+<section aria-label="Host &amp; Showman — открыть раздел" class="panel host" data-i18n-aria="host.aria" data-route="host/" data-section="host" data-title="Host &amp; Showman" role="button" tabindex="0">
+<img alt="Christian Devalcoeur — ведущий на сцене с микрофоном" fetchpriority="high" src="assets/host.webp"/>
+<video aria-hidden="true" class="hero-video" loop="" muted="" playsinline="" preload="none"><source src="assets/host.mp4" type="video/mp4"/></video>
+<div class="ambient"></div>
+<div class="content"><span class="index" data-i18n="host.index">01 / THE STAGE</span><h2 data-i18n-html="host.title">Host &amp;<br/>Showman</h2><p data-i18n="host.desc">Master of ceremonies</p><span class="explore"><span class="explore-label" data-i18n="host.action"></span><span aria-hidden="true">↗</span></span></div>
+</section>
+<section aria-label="Actor — открыть раздел" class="panel actor" data-i18n-aria="actor.aria" data-route="actor/" data-section="actor" data-title="Actor" role="button" tabindex="0">
+<img alt="Christian Devalcoeur — актёр в кинематографической студии" src="assets/actor.webp"/>
+<video aria-hidden="true" class="hero-video" loop="" muted="" playsinline="" preload="none"><source src="assets/actor.mp4" type="video/mp4"/></video>
+<div class="ambient"></div>
+<div class="content"><span class="index" data-i18n="actor.index">02 / THE SCREEN</span><h2 data-i18n-html="actor.title">Actor</h2><p data-i18n="actor.desc">Cinema &amp; performance</p><span class="explore"><span class="explore-label" data-i18n="actor.action"></span><span aria-hidden="true">↗</span></span></div>
+</section>
+<section aria-label="AI Creator — открыть раздел" class="panel ai" data-i18n-aria="ai.aria" data-route="ai/" data-section="ai" data-title="AI Creator" role="button" tabindex="0">
+<img alt="Christian Devalcoeur — AI Creator в футуристической лаборатории" src="assets/ai.webp"/>
+<video aria-hidden="true" class="hero-video" loop="" muted="" playsinline="" preload="none"><source src="assets/ai.mp4" type="video/mp4"/></video>
+<div class="ambient"></div>
+<div class="content"><span class="index" data-i18n="ai.index">03 / THE FUTURE</span><h2 data-i18n-html="ai.title">AI Creator</h2><p data-i18n="ai.desc">Intelligence &amp; imagination</p><span class="explore"><span class="explore-label" data-i18n="ai.action"></span><span aria-hidden="true">↗</span></span></div>
+</section>
+<section aria-label="Telekinesis Show — открыть раздел" class="panel tele" data-i18n-aria="tele.aria" data-route="telekinesis/" data-section="tele" data-title="Telekinesis Show" role="button" tabindex="0">
+<img alt="Christian Devalcoeur — Telekinesis Show с золотым световым мечом" src="assets/telekinesis.webp"/>
+<video aria-hidden="true" class="hero-video" loop="" muted="" playsinline="" preload="none"><source src="assets/telekinesis.mp4" type="video/mp4"/></video>
+<div class="ambient"></div>
+<div class="content"><span class="index" data-i18n="tele.index">04 / THE IMPOSSIBLE</span><h2 data-i18n-html="tele.title">Telekinesis<br/>Show</h2><p data-i18n="tele.desc">Beyond imagination</p><span class="explore"><span class="explore-label" data-i18n="tele.action"></span><span aria-hidden="true">↗</span></span></div>
+</section>
+</div>
+</main>
+<footer class="bottom"><span>© 2026 Christian Devalcoeur</span><span class="tagline" data-i18n="tagline">Impossible is Possible.</span><span class="preview-tag" data-i18n="footerNote">Animated Preview V18 · Artist + Designer Coming Later</span></footer>
+</div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="assets/portal.js"></script>
+<script src="assets/player.js"></script>
+<script src="assets/portal-v17.js"></script>
+<script src="assets/portal-v19.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* Devalcoeur Signature Elite: independent, accessible dock */
+.signature-dock{position:relative;justify-self:start;width:184px;align-self:center;z-index:12;color:#f5e6c8;font-family:Inter,'Segoe UI',sans-serif}
+.signature-device{position:relative;width:176px;height:98px;border:1px solid #b99156;border-radius:11px 11px 15px 15px;background:linear-gradient(155deg,#303542,#0a0d16 56%,#151923);box-shadow:0 8px 22px #000a,0 0 0 1px #222c36 inset;transform:perspective(430px) rotateX(13deg);overflow:visible}
+.signature-device:after{content:'';position:absolute;inset:7px;border:1px solid #94744955;border-radius:6px;pointer-events:none}
+.signature-platter{position:absolute;left:12px;top:4px;width:92px;height:92px;display:grid;place-items:center;border-radius:50%;border:2px solid #d0a861;background:radial-gradient(circle,#161d2d 0 19%,#090b12 20% 29%,#242833 30% 31%,#0b0d12 32% 42%,#30333a 43% 44%,#090b11 45% 72%,#303742 73% 75%,#0c0c12 76%);box-shadow:0 2px 12px #0009,0 0 13px #66bfff1a;animation:signature-spin 1.8s linear infinite;animation-play-state:paused}
+.signature-platter:after{content:'';position:absolute;inset:7px;border-radius:50%;border:1px solid #a3a9b52b;box-shadow:0 0 0 8px #a3a9b507,0 0 0 15px #a3a9b509,0 0 0 23px #a3a9b507;pointer-events:none}
+.signature-label{height:31px;width:31px;border-radius:50%;border:2px solid #e0b56a;display:grid;place-items:center;background:radial-gradient(circle,#28588d,#09182d);font:700 11px Georgia,serif;color:#fbe6b8}
+.signature-arm{position:absolute;right:12px;top:11px;width:52px;height:51px;transform-origin:41px 8px;transform:rotate(-31deg);transition:transform .8s cubic-bezier(.2,.8,.25,1);z-index:2}
+.signature-arm:before{content:'';position:absolute;right:2px;top:2px;width:15px;height:15px;background:radial-gradient(circle,#252e3c 30%,#bf9655 40%,#3a3c42 70%);border-radius:50%;box-shadow:0 0 5px #d1ac64}
+.signature-arm:after{content:'';position:absolute;right:9px;top:10px;width:4px;height:56px;background:linear-gradient(90deg,#705633,#f2d49e,#8a6a3e);border-radius:3px;transform:rotate(30deg);transform-origin:top center;box-shadow:0 0 5px #000}
+.signature-needle{position:absolute;top:60px;right:23px;width:9px;height:6px;background:#9acfff;box-shadow:0 0 8px #3caaff;border:1px solid #cfab63;transform:rotate(30deg)}
+.signature-device.armed .signature-arm{transform:rotate(20deg)}
+.signature-device.playing .signature-platter{animation-play-state:running}
+.signature-device.ending .signature-platter{animation-duration:3.5s}
+.signature-play{position:absolute;right:13px;bottom:13px;width:35px;height:35px;z-index:5;border:2px solid #e2b96d;border-radius:50%;background:radial-gradient(circle at 40% 30%,#2375b7,#0a264b 74%);color:#ffe0a5;display:grid;place-items:center;cursor:pointer;box-shadow:0 0 11px #259eff75;transition:transform .25s,box-shadow .25s}
+.signature-play:hover,.signature-play:focus-visible{transform:scale(1.08);box-shadow:0 0 17px #399fff}
+.signature-play svg{width:17px;height:17px;fill:currentColor}
+.signature-menu-toggle{position:absolute;right:54px;bottom:17px;border:1px solid #9c7d53;border-radius:50%;height:28px;width:28px;color:#bfe6ff;background:#10233e;cursor:pointer;font-size:15px;z-index:6}
+.signature-caption{font-size:8px;letter-spacing:.15em;text-align:center;margin-top:6px;color:#c8ac76;white-space:nowrap}
+.signature-panel{position:absolute;top:calc(100% + 12px);left:0;width:min(360px,calc(100vw - 28px));max-height:min(75vh,650px);overflow-y:auto;padding:16px;border:1px solid #b09055;border-radius:17px;background:linear-gradient(155deg,#141e31f5,#080b13f8 70%);box-shadow:0 18px 65px #000e,0 0 24px #1d5c9a3d;backdrop-filter:blur(20px);z-index:60}
+.signature-panel[hidden]{display:none}
+.signature-panel-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.signature-panel-name{font:700 12px Georgia,serif;color:#e5c181;letter-spacing:.12em}
+.signature-panel-sub{font-size:9px;color:#8db5da;letter-spacing:.13em;margin-top:4px}
+.signature-close{border:1px solid #667589;color:white;background:#122035;border-radius:50%;width:29px;height:29px;cursor:pointer}
+.signature-holo{height:104px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid #41628f66;border-radius:9px;background:radial-gradient(ellipse at 50% 80%,#144e90a8,#0b1226 70%);margin-bottom:13px}
+.signature-holo:before{content:'';position:absolute;left:22%;right:22%;bottom:5px;border-radius:50%;height:14px;border:1px solid #caa869;box-shadow:0 0 26px #5cb9fe;opacity:.45}
+.signature-holo-image{width:100%;height:100%;object-fit:cover;object-position:center 61%;opacity:0;transform:translateY(45px) scale(.66);filter:sepia(.12) hue-rotate(170deg) saturate(1.7) drop-shadow(0 0 8px #3fb6ff);mix-blend-mode:screen;transition:opacity .65s,transform 1.25s;mask-image:linear-gradient(to bottom,#000 5%,#000 75%,transparent)}
+.signature-panel.holo-active .signature-holo-image{opacity:.65;transform:translateY(-6px) scale(.96)}
+.signature-holo-label{position:absolute;bottom:7px;left:0;right:0;text-align:center;color:#ead49b;text-shadow:0 0 7px #000;letter-spacing:.22em;font-size:9px;z-index:2}
+.signature-spectrum{width:100%;height:66px;display:block;border:1px solid #34476180;border-radius:7px;background:#070e20}
+.signature-track{display:block;margin:9px 0;color:#ccd6e7;font-size:11px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.signature-progress{width:100%;accent-color:#d8b56e;cursor:pointer}
+.signature-times{display:flex;justify-content:space-between;font-size:10px;color:#a8c1df;margin:4px 0 10px;font-variant-numeric:tabular-nums}
+.signature-transport{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.signature-control{color:#f3ddb0;background:#15253d;border:1px solid #9b8157;border-radius:7px;padding:8px 11px;cursor:pointer;font-size:12px;min-height:32px}
+.signature-control:hover,.signature-control:focus-visible{border-color:#70bcf7;background:#203956}
+.signature-control[aria-pressed=true]{box-shadow:0 0 0 1px #6ebcff inset}
+.signature-load{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 11px;border:1px solid #80b8e7;border-radius:7px;color:#c3e6ff;background:#112742;font-size:11px;cursor:pointer}
+.signature-load input{display:none}
+.signature-slider-row{display:grid;grid-template-columns:65px 1fr 40px;gap:8px;align-items:center;margin:10px 0;font-size:10px;letter-spacing:.08em;color:#dbbd84}
+.signature-slider-row input{width:100%;accent-color:#70b8ff}
+.signature-slider-row output{text-align:right;color:#c2d6f0;letter-spacing:0;font-variant-numeric:tabular-nums}
+.signature-status{min-height:15px;color:#afc6e4;font-size:10px;margin-top:8px}
+@keyframes signature-spin{to{transform:rotate(360deg)}}
+@media(max-width:850px){.signature-dock{width:58px}.signature-device{width:50px;height:50px;border-radius:50%;transform:none}.signature-platter{width:42px;height:42px;left:3px;top:3px}.signature-label{width:16px;height:16px;font-size:6px}.signature-arm,.signature-menu-toggle,.signature-caption{display:none}.signature-play{width:28px;height:28px;right:-8px;bottom:-7px}.signature-panel{position:fixed;left:12px;top:85px;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 100px)}}
+@media(prefers-reduced-motion:reduce){.signature-platter{animation:none}.signature-arm,.signature-holo-image{transition:none}}
+
+/* V9: align Signature Elite with right side of masthead */
+.right-controls .signature-dock{justify-self:auto;flex:0 0 184px}
+@media(max-width:1050px){.right-controls .signature-dock{flex:0 0 58px}}
+@media(max-width:1050px){.right-controls .signature-panel{left:auto;right:10px}}
+
+.signature-local-notice{font-size:10px;color:#e1c48b;line-height:1.35;margin:8px 0}
+
+/* V11 — Signature Elite Neon B: real CSS three-quarter turntable, controls in FRONT, stylus unobstructed */
+@media(min-width:1051px){
+.signature-dock{width:194px!important}
+.left-brand .signature-dock{width:194px!important;flex-basis:194px!important}
+.signature-device{width:190px;height:107px;transform:none;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;filter:drop-shadow(0 7px 7px #000b)}
+.signature-device::after{display:none}
+.signature-deck{position:absolute;top:3px;left:6px;width:175px;height:96px;transform:perspective(340px) rotateX(33deg) rotateZ(-3deg);transform-origin:center bottom;border:1px solid #d9a960;border-radius:13px 13px 9px 9px;background:linear-gradient(143deg,#202837 1%,#080b12 32%,#030408 55%,#101724 100%);box-shadow:0 0 0 1px #6c8ba04a inset,0 0 0 5px #010308 inset,0 8px 18px #000b,0 1px 9px #45a8fd35}
+.signature-deck::after{content:'';position:absolute;inset:4px;border-radius:9px;border:1px solid #8ad5ff4b;pointer-events:none}
+.signature-platter{width:99px;height:99px;top:-8px;left:5px;border:2px solid #ddae60;background:radial-gradient(circle,#172c49 0 16%,#03050a 17% 22%,#303640 23% 24%,#06080e 25% 40%,#283345 41% 42%,#06070d 43% 72%,#304052 73% 74%,#04070c 75%);box-shadow:0 0 0 3px #090d17,0 0 12px #197bc974,0 0 6px #eac26e72}
+.signature-label{width:34px;height:34px;font-size:12px;box-shadow:0 0 9px #4b9fff55}
+.signature-arm{right:5px;top:5px;width:56px;height:58px;transform-origin:42px 8px;transform:rotate(-27deg);filter:drop-shadow(1px 2px 2px #000)}
+.signature-device.armed .signature-arm{transform:rotate(24deg)}
+.signature-arm:before{width:17px;height:17px;right:0;top:0;background:radial-gradient(circle,#141a26 20%,#d9b06a 36%,#161c25 65%,#f3ce83 82%)}
+.signature-arm:after{height:61px;width:5px;background:linear-gradient(90deg,#75502c,#f6db9a 45%,#475872 72%,#cfa35e)}
+.signature-needle{right:20px;top:63px;box-shadow:0 0 10px 3px #4bc2ff}
+.signature-front{position:absolute;left:11px;right:4px;bottom:0;height:31px;transform:skewX(-10deg);background:linear-gradient(180deg,#101927,#03070e 42%,#050c17);border:1px solid #d3a75d;border-radius:2px 3px 8px 8px;box-shadow:inset 0 1px 4px #5ab5fc40,0 4px 15px #000b,0 0 5px #50aaff4c;z-index:6;display:flex;align-items:center;justify-content:flex-end;gap:9px;padding:3px 8px}
+.signature-front::before{content:'SIGNATURE';font-size:5px;letter-spacing:.17em;color:#f0c981;margin-right:auto;text-shadow:0 0 6px #daae6d;transform:skewX(10deg)}
+.signature-play,.signature-menu-toggle{position:relative;inset:auto;right:auto;bottom:auto;top:auto;transform:skewX(10deg);flex:none;z-index:8}
+.signature-play{width:27px;height:27px;border-width:1.5px;background:radial-gradient(circle at 40% 25%,#45c8ff,#104c88 55%,#071329);box-shadow:0 0 9px #35b3ffcb,inset 0 0 7px #bbebff86,0 0 0 1px #b08a55}
+.signature-play svg{width:14px;height:14px}
+.signature-menu-toggle{width:25px;height:25px;border:1.5px solid #e7bd70;font-size:13px;background:radial-gradient(circle at 45% 25%,#36bbff,#0d3b76 60%,#091326);box-shadow:0 0 10px #2b9dfba9,inset 0 0 4px #e2faff88;color:#f5e6c6}
+.signature-mini-spectrum{display:flex;align-items:flex-end;gap:2px;height:18px;width:29px;transform:skewX(10deg);flex:none}
+.signature-mini-spectrum i{display:block;width:2px;height:var(--h,7px);background:#54c4ff;box-shadow:0 0 5px #5dc6ff}
+.signature-mini-spectrum i:nth-child(1){--h:7px}.signature-mini-spectrum i:nth-child(2){--h:12px}.signature-mini-spectrum i:nth-child(3){--h:16px}.signature-mini-spectrum i:nth-child(4){--h:9px}.signature-mini-spectrum i:nth-child(5){--h:14px}.signature-mini-spectrum i:nth-child(6){--h:11px}.signature-mini-spectrum i:nth-child(7){--h:6px}
+.signature-device.playing .signature-mini-spectrum i{animation:signature-levels .6s ease-in-out infinite alternate;animation-delay:calc(var(--h) * -24ms)}
+.signature-caption{margin-top:1px;color:#e7c183;letter-spacing:.13em}
+.signature-play:hover,.signature-play:focus-visible{transform:skewX(10deg) scale(1.09);box-shadow:0 0 16px #64ccff,0 0 7px #f0be63}
+}
+@keyframes signature-levels{to{height:4px;opacity:.65}}
+@media(max-width:1050px){.signature-deck{display:contents}.signature-front{display:contents}.signature-mini-spectrum{display:none}}
+@media(prefers-reduced-motion:reduce){.signature-mini-spectrum i{animation:none!important}}

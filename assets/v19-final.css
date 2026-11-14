@@ -1,0 +1,24 @@
+/* V19: exact vertical alignment plus unobtrusive FX and power buttons. */
+.elite-static-state{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;z-index:4;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .28s ease;filter:drop-shadow(0 5px 11px rgba(0,0,0,.38));}
+.elite-overlay[data-fx="off"][data-power="on"] .elite-state-fx-off{opacity:1;visibility:visible;}
+.elite-overlay[data-power="off"] .elite-state-power-off{opacity:1;visibility:visible;}
+.elite-overlay[data-fx="off"] .elite-overlay-video,.elite-overlay[data-power="off"] .elite-overlay-video{visibility:hidden!important;}
+.elite-overlay[data-power="off"] .elite-glass-content{background:#02060d!important;}
+.elite-overlay[data-power="off"] .elite-glass-content canvas{visibility:hidden!important;}
+.elite-overlay[data-power="off"] .elite-glass-sheen{opacity:.08;}
+.elite-overlay[data-power="off"] .elite-hitboxes>.elite-hotspot{pointer-events:none!important;cursor:default!important;}
+.elite-state-switch{appearance:none;border:1px solid rgba(119,175,218,.52);background:linear-gradient(160deg,#151e2e,#070a11);color:#acdfff;box-shadow:inset 0 0 9px #267ac326;min-width:32px;height:32px;display:flex;align-items:center;justify-content:center;gap:3px;border-radius:10px;padding:0 6px;cursor:pointer;font-family:Inter,'Segoe UI',sans-serif;font-size:14px;line-height:1;transition:border-color .2s,background .2s,color .2s;}
+.elite-state-switch:hover,.elite-state-switch:focus-visible{border-color:#e2b866;color:#f6d799;outline-offset:2px;}
+.elite-state-switch[aria-pressed="false"]{border-color:#526071;color:#7a9aaf;background:#07090f;}
+.elite-state-switch[aria-pressed="true"]{border-color:#c29b5b;color:#edcc8e;}
+.elite-state-switch:disabled{opacity:.4;cursor:not-allowed;}
+.elite-switch-label{font-size:8px;letter-spacing:.04em;}
+.elite-power-switch{font-size:19px;}
+@media(min-width:1051px){
+ /* V22: nudged the right equalizer slightly left for tighter visual symmetry with the central title card. */
+ .right-controls{transform:translate(-72px,14px)!important;}
+ .control-cluster{gap:7px!important;}
+}
+@media(min-width:1051px) and (max-width:1360px){.right-controls{transform:translate(-60px,12px)!important;}}
+@media(max-width:1050px){.elite-state-switch{min-width:27px;height:27px;border-radius:8px;padding:0 4px}.elite-power-switch{font-size:17px}.elite-switch-label{font-size:7px}}
+@media(max-width:620px){.control-cluster{gap:3px!important}.elite-state-switch{min-width:24px;height:24px;border-radius:7px}.elite-switch-label{font-size:6px}}

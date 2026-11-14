@@ -1,0 +1,13 @@
+/* V14 — silver rounded title and matching large, synchronized cinema turntable in audio console */
+.identity h1.signature-film-title{border-radius:22px!important;border:1px solid rgba(212,225,245,.78)!important;overflow:hidden!important;box-shadow:0 0 0 1px rgba(245,249,255,.1) inset,0 0 18px rgba(128,188,255,.20),0 9px 32px #0008!important}
+.identity h1.signature-film-title .signature-title-video{border-radius:21px;display:block}
+.signature-panel{width:min(470px,calc(100vw - 28px))!important;max-height:min(82vh,790px)!important;background:linear-gradient(145deg,#0d172bf7,#04070efb 72%)!important;border-color:#c4a263!important;box-shadow:0 23px 75px #000f,0 0 30px #2385db38!important}
+.signature-large-stage{height:auto!important;aspect-ratio:16/9;min-height:0!important;margin-bottom:14px!important;background:#050a13!important;border:1px solid #c39c58!important;border-radius:13px!important;box-shadow:inset 0 0 15px #55a9ef2f,0 0 18px #3f9cfa2a!important;overflow:hidden}
+.signature-large-stage:before{display:none!important}
+.signature-large-video{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#020710}
+.signature-large-stage .signature-holo-label{pointer-events:none;font-size:8px;letter-spacing:.22em;color:#e2bd80;text-shadow:0 2px 8px #000,0 0 12px #071320;background:linear-gradient(90deg,transparent,#02060bc0,transparent);padding:7px 0;bottom:0}
+.signature-spectrum{height:105px!important;border:1px solid #5aaefa70!important;border-radius:11px!important;background:linear-gradient(#081b32,#040916)!important;box-shadow:inset 0 0 15px #338fe42c,0 0 11px #287ad329}
+.signature-slider-row{grid-template-columns:80px 1fr 47px!important;gap:10px!important;margin:13px 0!important}
+.signature-panel-header{margin-bottom:13px!important}
+.signature-transport{margin-top:13px}
+@media(max-width:600px){.identity h1.signature-film-title{border-radius:12px!important}.identity h1.signature-film-title .signature-title-video{border-radius:11px}.signature-panel{width:calc(100vw - 24px)!important;max-height:calc(100dvh - 95px)!important;padding:12px!important}.signature-spectrum{height:82px!important}}

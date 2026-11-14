@@ -1,0 +1,106 @@
+/* V17: original animated artwork is the actual visual frame, not a CSS recreation.
+   The video was alpha-masked in its display region to expose a live audio canvas. */
+.audio-console-card.elite-overlay {
+  position:relative!important;box-sizing:border-box!important;
+  width:240px!important;min-width:240px!important;
+  height:auto!important;aspect-ratio:896 / 416!important;
+  padding:0!important;margin:0!important;
+  background:transparent!important;border:0!important;
+  border-radius:18px!important;overflow:visible!important;
+  box-shadow:none!important;isolation:isolate;
+  flex:0 0 auto!important;
+}
+.audio-console-card.elite-overlay::before,.audio-console-card.elite-overlay::after{display:none!important}
+.elite-overlay-fallback,.elite-overlay-video{
+  position:absolute;inset:0;width:100%;height:100%;
+  border-radius:inherit;overflow:hidden;pointer-events:none;
+}
+.elite-overlay-fallback{z-index:2;display:block}
+.elite-overlay-fallback img{width:100%;height:100%;display:block;object-fit:fill}
+.elite-overlay-video{z-index:3;display:block;object-fit:fill;filter:drop-shadow(0 5px 11px rgba(0,0,0,.42))}
+.elite-glass-content{
+  position:absolute;left:7.3%;top:27.8%;width:85.2%;height:29.7%;
+  overflow:hidden;border-radius:17px;z-index:1;
+  background:linear-gradient(175deg,rgba(5,22,42,.94),rgba(1,6,14,.97));
+}
+.elite-glass-content canvas{
+  display:block!important;width:100%!important;height:100%!important;
+  position:absolute!important;inset:0!important;
+  border:0!important;border-radius:0!important;
+  background:transparent!important;
+}
+.elite-glass-sheen{position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(167deg,rgba(158,220,255,.13) 0%,rgba(131,199,255,.04) 26%,transparent 43%,rgba(48,93,151,.07) 80%,rgba(255,208,124,.07) 100%);
+  box-shadow:inset 0 0 18px rgba(73,165,245,.17),inset 0 1px rgba(210,245,255,.15);
+}
+.elite-hitboxes{position:absolute;inset:0;z-index:8;pointer-events:none}
+.elite-hotspot{position:absolute;pointer-events:auto;appearance:none;-webkit-appearance:none;
+  border:0!important;border-radius:12px;background:transparent!important;
+  color:transparent!important;box-shadow:none!important;padding:0!important;margin:0!important;
+  cursor:pointer;opacity:1;transition:box-shadow .2s ease;
+}
+.elite-hotspot:focus-visible{outline:2px solid #84d7ff!important;outline-offset:1px}
+.elite-hotspot:hover{box-shadow:0 0 10px rgba(91,188,255,.25)!important}
+.elite-console{left:10.5%;top:13%;width:17.5%;height:10%}
+.elite-sphere{left:31%;top:13%;width:16%;height:10%}
+.elite-audio{left:76.4%;top:13%;width:15%;height:10%}
+.elite-play{left:8.3%;top:31%;width:11.4%;height:21%;border-radius:50%}
+.elite-settings{left:7.5%;top:65%;width:9.5%;height:17%;border-radius:50%}
+.elite-headphones{left:84%;top:64%;width:10.4%;height:18%;border-radius:50%}
+.elite-bass{left:19.3%;top:72%;width:18.2%;height:8%}
+.elite-mid{left:41.3%;top:72%;width:18%;height:8%}
+.elite-treble{left:63.5%;top:72%;width:17.7%;height:8%}
+.elite-hotspot[type=range]{opacity:0;min-height:10px;cursor:ew-resize}
+.elite-hotspot[type=range]:focus-visible{opacity:.18;outline:2px solid #7edaff}
+@media(min-width:1051px){
+  .masthead{grid-template-columns:minmax(285px,1fr) minmax(0,740px) minmax(285px,1fr)!important}
+  .right-controls{justify-self:stretch!important;align-items:center!important;flex-direction:column!important;gap:9px!important}
+  .audio-console-card.elite-overlay{width:240px!important;min-width:240px!important;height:auto!important}
+}
+@media(max-width:1050px){.audio-console-card.elite-overlay{width:185px!important;min-width:185px!important}}
+@media(max-width:620px){
+  .audio-console-card.elite-overlay{width:138px!important;min-width:138px!important}
+  .elite-hotspot[type=range]{height:16%;top:68%}
+}
+@media(prefers-reduced-motion:reduce){.elite-overlay-video{display:none}}
+
+.elite-localized-captions{position:absolute;inset:0;z-index:7;pointer-events:none;}
+.elite-localized-captions[hidden]{display:none}
+.elite-localized-captions span{position:absolute;top:14%;height:10%;display:flex;align-items:center;justify-content:center;border-radius:999px;background:linear-gradient(#132033,#070a12);border:1px solid #4c90c0;color:#badcf1;font:500 clamp(6px,.58vw,9px) 'Segoe UI',sans-serif;white-space:nowrap;text-transform:uppercase}
+.elite-localized-captions [data-slot=console]{left:10.5%;width:17.5%;border-color:#d0a55b;color:#ebcc8d}
+.elite-localized-captions [data-slot=sphere]{left:31%;width:16%}
+.elite-localized-captions [data-slot=audio]{left:76.4%;width:15%}
+
+
+/* V18 final alignment fix — equal lateral spacing and aligned top edge */
+@media(min-width:1051px){
+  /* Pull the right audio block closer to the title to mirror the left-side turntable gap. */
+  .masthead{
+    grid-template-columns:minmax(310px,1fr) minmax(0,740px) minmax(310px,1fr)!important;
+    column-gap:16px!important;
+  }
+  .right-controls{
+    justify-self:end!important;
+    align-items:center!important;
+    flex-direction:column!important;
+    gap:8px!important;
+    transform:translateX(-38px)!important;
+  }
+  /* Make the equalizer block slightly more compact and drop it so the top line matches the left player. */
+  .audio-console-card.elite-overlay{
+    width:220px!important;
+    min-width:220px!important;
+    margin-top:8px!important;
+  }
+  .control-cluster{
+    width:220px;
+    justify-content:center!important;
+    gap:9px!important;
+  }
+}
+@media(min-width:1051px) and (max-width:1360px){
+  .masthead{grid-template-columns:minmax(275px,1fr) minmax(0,680px) minmax(275px,1fr)!important;}
+  .right-controls{transform:translateX(-28px)!important;}
+  .audio-console-card.elite-overlay{width:205px!important;min-width:205px!important;margin-top:8px!important;}
+  .control-cluster{width:205px;}
+}

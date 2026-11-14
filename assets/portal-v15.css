@@ -1,0 +1,162 @@
+/* V15 — full-screen control, rounded left preview, and right-side premium dual-mode audio console */
+@media(min-width:1051px){
+  .masthead{grid-template-columns:minmax(250px,1fr) minmax(0,1.7fr) minmax(300px,1.05fr)!important;align-items:center;column-gap:22px}
+  .left-brand .signature-dock{width:265px!important;flex-basis:265px!important}
+}
+
+.left-brand .signature-device{
+  border-radius:16px!important;
+  overflow:hidden!important;
+  box-shadow:0 10px 26px rgba(0,0,0,.42),0 0 0 1px rgba(219,175,96,.24) inset,0 0 18px rgba(45,159,255,.11)!important;
+}
+.left-brand .signature-stage-video{border-radius:16px!important}
+
+.right-controls{
+  min-width:0;
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
+}
+.control-cluster{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.fullscreen-toggle{
+  appearance:none;
+  border:1px solid rgba(217,181,106,.55);
+  background:linear-gradient(180deg,rgba(18,25,37,.94),rgba(7,10,17,.98));
+  color:#f0d18a;
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  cursor:pointer;
+  font-size:18px;
+  line-height:1;
+  box-shadow:0 0 0 1px rgba(110,179,255,.11) inset,0 6px 18px rgba(0,0,0,.32),0 0 16px rgba(31,136,255,.08);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.fullscreen-toggle:hover,.fullscreen-toggle:focus-visible{
+  transform:translateY(-1px);
+  border-color:#7bbfff;
+  box-shadow:0 0 0 1px rgba(130,194,255,.18) inset,0 10px 24px rgba(0,0,0,.36),0 0 18px rgba(48,159,255,.22);
+}
+.fullscreen-toggle.is-fullscreen{color:#bfe8ff;border-color:#7bbfff}
+
+.audio-console-card{
+  --console-blue:#54caff;
+  --console-gold:#ddb15a;
+  width:min(330px,30vw);
+  min-width:250px;
+  padding:10px 12px 12px;
+  border-radius:24px;
+  background:linear-gradient(165deg,rgba(14,20,31,.95),rgba(4,7,13,.98) 75%);
+  border:1px solid rgba(218,181,106,.46);
+  box-shadow:0 0 0 1px rgba(116,184,255,.09) inset,0 14px 38px rgba(0,0,0,.45),0 0 22px rgba(30,139,255,.16);
+  position:relative;
+  overflow:hidden;
+}
+.audio-console-card::before{
+  content:"";
+  position:absolute;inset:0;
+  border-radius:inherit;
+  background:radial-gradient(circle at 0% 0%,rgba(102,185,255,.22),transparent 35%),radial-gradient(circle at 100% 0%,rgba(231,181,90,.2),transparent 26%),linear-gradient(180deg,rgba(255,255,255,.03),transparent 24%);
+  pointer-events:none;
+}
+.audio-console-topline{
+  position:relative;z-index:2;
+  display:flex;align-items:center;gap:7px;justify-content:flex-start;
+  margin-bottom:9px;
+}
+.console-chip{
+  appearance:none;
+  border:1px solid rgba(100,134,178,.44);
+  color:#c4d3e8;background:rgba(10,18,31,.84);
+  border-radius:999px;padding:5px 10px;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
+  transition:all .22s ease;
+}
+.console-chip.is-active,.console-chip:hover,.console-chip:focus-visible{
+  color:#f5dfaa;border-color:rgba(224,179,95,.72);background:linear-gradient(180deg,rgba(17,41,72,.96),rgba(7,15,25,.96));
+  box-shadow:0 0 10px rgba(52,171,255,.16);
+}
+.console-open-player{margin-left:auto}
+.audio-console-stage{
+  position:relative;z-index:1;height:168px;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(115,188,255,.25);
+  background:linear-gradient(180deg,rgba(6,12,22,.98),rgba(5,8,16,.98));
+  box-shadow:inset 0 0 16px rgba(52,160,255,.18),0 0 16px rgba(0,0,0,.32);
+}
+.audio-console-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:1}
+.audio-core,.audio-sphere-mode{position:absolute;inset:0;pointer-events:none;z-index:2}
+.audio-core{
+  opacity:1;transition:opacity .35s ease,transform .35s ease;
+}
+.audio-console-card[data-mode="sphere"] .audio-core{opacity:0;transform:scale(.92)}
+.audio-console-card[data-mode="console"] .audio-sphere-mode{opacity:0;transform:scale(.92)}
+.audio-sphere-mode{
+  opacity:1;transition:opacity .35s ease,transform .35s ease;
+}
+.audio-core-ring,.audio-core-sphere,.sphere-main,.sphere-halo,.sphere-pulse{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%}
+.audio-core-ring.ring-a{width:88px;height:88px;border:1px solid rgba(82,201,255,.76);box-shadow:0 0 24px rgba(57,180,255,.28), inset 0 0 12px rgba(57,180,255,.15);animation:console-rotate 8s linear infinite}
+.audio-core-ring.ring-b{width:58px;height:58px;border:1px solid rgba(222,176,83,.75);box-shadow:0 0 20px rgba(222,176,83,.25);animation:console-rotate 5.5s linear infinite reverse}
+.audio-core-sphere{width:32px;height:32px;background:radial-gradient(circle at 35% 35%,#f1fcff 0,#70d7ff 24%,#1b5ba7 52%,#081830 78%,transparent 79%);box-shadow:0 0 24px rgba(84,202,255,.56),0 0 10px rgba(222,176,83,.28);animation:console-pulse 2.4s ease-in-out infinite}
+.sphere-main{width:72px;height:72px;background:radial-gradient(circle at 35% 35%,#fbffff 0,#7cdfff 18%,#1760ba 37%,#0a1f45 58%,#0a1127 70%,transparent 71%);box-shadow:0 0 35px rgba(56,181,255,.5),0 0 28px rgba(222,176,83,.22)}
+.sphere-halo{width:108px;height:108px;border:1px solid rgba(229,177,81,.6);box-shadow:0 0 18px rgba(229,177,81,.26);animation:console-pulse 2.6s ease-in-out infinite}
+.sphere-pulse{width:144px;height:144px;border:1px solid rgba(87,198,255,.26);box-shadow:0 0 20px rgba(87,198,255,.14);animation:console-breathe 3.2s ease-in-out infinite}
+.console-wave{
+  position:absolute;left:10%;right:10%;height:30px;border-radius:999px;z-index:2;opacity:.85;
+  border-top:2px solid rgba(84,202,255,.72);filter:drop-shadow(0 0 8px rgba(84,202,255,.35));
+}
+.console-wave-a{bottom:41px;transform:skewX(-25deg) scaleY(1.35);border-top-color:rgba(84,202,255,.88)}
+.console-wave-b{bottom:24px;transform:skewX(18deg) scaleY(1.1);border-top-color:rgba(222,176,83,.9);opacity:.75;left:18%;right:18%}
+.audio-console-bottom{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px;
+}
+.console-param{display:grid;gap:6px;justify-items:center;color:#e4be74;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.console-param i{display:block;width:100%;height:8px;border-radius:999px;background:linear-gradient(90deg,#1a4f92,#4ec8ff 48%,#dca44d);box-shadow:0 0 10px rgba(78,200,255,.28)}
+
+@keyframes console-rotate{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes console-pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.08)}}
+@keyframes console-breathe{0%,100%{transform:translate(-50%,-50%) scale(.92);opacity:.55}50%{transform:translate(-50%,-50%) scale(1.04);opacity:1}}
+
+@media(max-width:1240px){
+  .masthead{grid-template-columns:minmax(105px,1fr) minmax(0,auto) minmax(210px,1fr)!important}
+  .audio-console-card{width:min(280px,29vw);min-width:205px}
+}
+@media(max-width:980px){
+  .audio-console-card{width:210px;min-width:210px;padding:9px 9px 10px;border-radius:20px}
+  .audio-console-stage{height:138px}
+  .audio-core-ring.ring-a{width:72px;height:72px}
+  .audio-core-ring.ring-b{width:48px;height:48px}
+  .audio-core-sphere{width:26px;height:26px}
+  .sphere-main{width:56px;height:56px}
+  .sphere-halo{width:86px;height:86px}
+  .sphere-pulse{width:114px;height:114px}
+  .console-param{font-size:9px}
+  .console-chip{padding:4px 8px;font-size:9px;letter-spacing:.1em}
+}
+@media(max-width:880px){
+  .masthead{grid-template-columns:minmax(95px,1fr) minmax(0,1fr) auto!important}
+  .right-controls{gap:6px}
+  .audio-console-card{width:178px;min-width:178px;padding:8px;border-radius:18px}
+  .audio-console-stage{height:120px}
+  .audio-console-bottom{gap:6px}
+  .console-open-player{display:none}
+}
+@media(max-width:620px){
+  .right-controls{align-items:flex-end}
+  .audio-console-card{width:150px;min-width:150px;padding:7px;border-radius:16px}
+  .audio-console-stage{height:96px;border-radius:13px}
+  .audio-console-bottom{display:none}
+  .audio-console-topline{margin-bottom:6px;gap:5px}
+  .console-chip{padding:3px 6px;font-size:8px}
+  .fullscreen-toggle{width:36px;height:36px;border-radius:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .audio-core-ring,.audio-core-sphere,.sphere-halo,.sphere-pulse{animation:none!important}
+}
