@@ -1,0 +1,90 @@
+/* V24: Mobile-only layout. Desktop/tablet styling remains identical to V23. */
+@media (max-width:620px) {
+  html,body { max-width:100%; overflow-x:hidden; }
+  .masthead {
+    display:grid!important;
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr)!important;
+    grid-template-areas: "brandtitle brandtitle" "deck visualizer" "actions actions";
+    align-items:center!important;
+    column-gap:12px!important;
+    row-gap:14px!important;
+    padding:18px 14px 19px!important;
+  }
+  .identity { grid-area:brandtitle; width:100%!important; min-width:0; margin:0!important; text-align:center; }
+  .identity .eyebrow { font-size:9px!important; letter-spacing:.22em!important; line-height:1.5; margin:0 0 10px!important; }
+  .identity h1.signature-film-title {
+    width:min(100%,380px)!important; max-width:380px!important;
+    margin-inline:auto!important; border-radius:16px!important;
+  }
+  .identity h1.signature-film-title .signature-title-video { width:100%; height:auto; border-radius:15px!important; }
+  .identity .subtitle {font-size:9px!important;letter-spacing:.18em!important;line-height:1.5;margin:9px 0 0!important;}
+
+  .left-brand { grid-area:deck; display:flex!important; align-items:center!important; justify-self:stretch!important; justify-content:center!important; gap:7px!important; min-width:0!important; }
+  .left-brand .monogram { flex:0 0 28px!important; width:28px!important;height:28px!important;font-size:14px!important; }
+  .left-brand .signature-dock {width:min(100%,168px)!important;flex:1 1 auto!important;min-width:0!important;max-width:168px!important;}
+  .left-brand .signature-device {
+    width:100%!important;height:auto!important;aspect-ratio:240 / 112!important;
+    border:0!important;border-radius:12px!important;background:transparent!important;
+  }
+  .left-brand .signature-stage-video {width:100%!important;height:100%!important;object-fit:cover!important;border-radius:12px!important;}
+  .left-brand .signature-dock .signature-play,
+  .left-brand .signature-dock .signature-menu-toggle {
+    display:block!important; position:absolute!important;
+    top:52%!important;bottom:auto!important;right:auto!important;
+    width:10.7%!important;height:31%!important;border-radius:50%!important;
+    transform:none!important;opacity:1!important;
+    background:transparent!important;border:1px solid transparent!important;
+    padding:0!important;z-index:10!important;
+  }
+  .left-brand .signature-dock .signature-play {left:89.5%!important;}
+  .left-brand .signature-dock .signature-menu-toggle {left:79.1%!important;}
+  .left-brand .signature-panel {
+    position:fixed!important; left:12px!important;right:12px!important;top:12px!important;
+    width:auto!important;max-width:none!important;
+    max-height:calc(100dvh - 24px)!important;
+    z-index:200!important;
+  }
+  .right-controls {display:contents!important; transform:none!important;}
+  .audio-console-card.elite-overlay {
+    grid-area:visualizer;justify-self:center!important;align-self:center!important;
+    width:min(100%,184px)!important;min-width:0!important;max-width:184px!important;
+    margin:0!important;aspect-ratio:896 / 416!important;
+  }
+  .control-cluster {
+    grid-area:actions; width:100%!important; max-width:100%!important;
+    display:flex!important;flex-direction:row!important;
+    flex-wrap:nowrap!important;justify-content:center!important;align-items:center!important;
+    gap:clamp(4px,1.7vw,9px)!important;
+    min-width:0!important;
+  }
+  .control-cluster .menu {display:flex!important;flex-wrap:nowrap!important;gap:4px!important;align-items:center;}
+  .control-cluster .language-choice {min-width:32px!important;width:32px!important;height:34px!important;padding:0 2px!important;font-size:11px!important;}
+  .control-cluster .elite-state-switch {min-width:33px!important;height:34px!important;border-radius:10px!important;padding:0 5px!important;}
+  .control-cluster .fullscreen-toggle {width:34px!important;height:34px!important;border-radius:10px!important;flex:0 0 34px!important;}
+  .control-cluster .elite-switch-label {font-size:8px!important;}
+
+  /* Clear, readable four-dimension gallery on narrow screens */
+  .hero {padding:0!important; min-height:0!important;overflow:visible!important;}
+  .panels {display:grid!important;grid-template-columns:minmax(0,1fr)!important; width:100%!important;}
+  .panel,.panel:first-child,.panel:last-child {
+    min-height:clamp(380px,65svh,560px)!important;
+    height:auto!important; width:100%!important;
+    margin:0!important; clip-path:none!important; border-bottom:1px solid rgba(208,171,108,.25);
+  }
+  .panel:not(:first-child) {margin-left:0!important;}
+  .panel::after {display:none!important;}
+  .panel img,.panel .hero-video {object-position:center 24%!important;}
+  .panel .content {
+    padding:85px 23px 26px!important;transform:none!important;
+  }
+  .panel .index {font-size:12px!important;margin-bottom:12px!important;letter-spacing:.26em!important;}
+  .panel .content h2 {font-size:clamp(24px,6vw,32px)!important;line-height:1.12!important;letter-spacing:.055em!important;margin-bottom:10px!important;}
+  .panel .content p {font-size:11px!important;letter-spacing:.08em!important;line-height:1.5!important;min-height:0!important;margin:0 0 18px!important;}
+  .panel .explore {font-size:11px!important;letter-spacing:.1em!important;padding:12px 16px!important;white-space:normal!important;}
+}
+@media(max-width:360px) {
+  .masthead{padding-inline:9px!important;column-gap:8px!important;}
+  .left-brand .monogram{display:none!important;}
+  .control-cluster{gap:3px!important;}
+  .control-cluster .language-choice{min-width:29px!important;width:29px!important;}
+}
